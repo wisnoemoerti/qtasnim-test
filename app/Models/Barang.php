@@ -5,21 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use DB;
-class TbMProject extends Model
+class Barang extends Model
 {
     use HasFactory;
-    protected $primaryKey = 'project_id';
 
     public static function createData($request)
     {
     	DB::beginTransaction();
         try {
-            $db = new TbMProject();
-			$db->project_name =  $request->project_name;
-			$db->client_id =  $request->client_id;
-			$db->project_start =  $request->project_start;
-			$db->project_end =  $request->project_end;
-			$db->project_status =  $request->project_status;
+            $db = new Barang();
+            $db->nama_barang= $request->nama_barang;
+            $db->stok= $request->stok;
+            $db->jumlah_terjual= $request->jumlah_terjual;
+            $db->tanggal_transaksi= $request->tanggal_transaksi;
+            $db->jenis_barang= $request->jenis_barang;
 			$db->save();
 	    	DB::commit();
 			$responseData = 'Data berhasil disimpan';
@@ -35,12 +34,12 @@ class TbMProject extends Model
     {
     	DB::beginTransaction();
         try {
-            $db = TbMProject::find($request->project_id);
-			$db->project_name =  $request->project_name;
-			$db->client_id =  $request->client_id;
-			$db->project_start =  $request->project_start;
-			$db->project_end =  $request->project_end;
-			$db->project_status =  $request->project_status;
+            $db = Barang::find($request->id);
+			$db->nama_barang= $request->nama_barang;
+            $db->stok= $request->stok;
+            $db->jumlah_terjual= $request->jumlah_terjual;
+            $db->tanggal_transaksi= $request->tanggal_transaksi;
+            $db->jenis_barang= $request->jenis_barang;
 			$db->save();
             DB::commit();
 			$responseData = 'Data berhasil dirubah';
@@ -57,7 +56,7 @@ class TbMProject extends Model
     	DB::beginTransaction();
         try {
             
-            $db = TbMProject::whereIn('project_id',explode(",", $request->id));
+            $db = Barang::find($request->id);
 			$db->delete();
             DB::commit();
 			$responseData = 'Data berhasil dihapus';
@@ -68,5 +67,4 @@ class TbMProject extends Model
 	    	return response()->json(['message'=> 'failed', 'data' => $responseData], 400);
         }
     }
-
 }

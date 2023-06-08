@@ -11,7 +11,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Akamarya - Test</title>
+    <title>Qtasnim - Test</title>
 
     <!-- Custom fonts for this template -->
     <link href="{{asset('assets/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -43,7 +43,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-folder"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Akamarya <sup>Project</sup></div>
+                <div class="sidebar-brand-text mx-3">Qtasnim <sup>Test</sup></div>
             </a>
 
             <!-- Divider -->
@@ -53,7 +53,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="{{url('/')}}">
                     <i class="fas fa-fw fa-folder-open"></i>
-                    <span>Projects</span></a>
+                    <span>Barang</span></a>
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

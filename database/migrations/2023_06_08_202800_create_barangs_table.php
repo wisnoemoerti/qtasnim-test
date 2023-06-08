@@ -11,10 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tb_m_clients', function (Blueprint $table) {
-            $table->bigIncrements('client_id');
-            $table->string('client_name');
-            $table->string('client_address');
+        Schema::create('barangs', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama_barang');
+            $table->integer('stok');
+            $table->integer('jumlah_terjual');
+            $table->date('tanggal_transaksi');
+            $table->string('jenis_barang');
             $table->timestamps();
         });
     }
@@ -24,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tb_m_clients');
+        Schema::dropIfExists('barangs');
     }
 };

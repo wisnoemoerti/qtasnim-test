@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\ProjectController::class, 'index']);
+Route::get('/', [App\Http\Controllers\BarangController::class, 'index']);
 
-Route::get('/datatables',[App\Http\Controllers\ProjectController::class, 'datatables'])->name('datatables');
-Route::match(['post', 'put', 'delete'], '/crud', [App\Http\Controllers\ProjectController::class, 'crud'])->name('product_crud');
+Route::get('/datatables',[App\Http\Controllers\BarangController::class, 'datatables'])->name('datatables');
+Route::match(['post', 'put', 'delete'], '/crud', [App\Http\Controllers\BarangController::class, 'crud'])->name('barang_crud');
 
 
 Auth::routes();
